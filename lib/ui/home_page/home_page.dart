@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_palyer_demo/res/strings.dart';
+import 'package:flutter_palyer_demo/ui/complex_module/main_page/complex_page.dart';
 import 'package:flutter_palyer_demo/ui/complex_module/recommend_page/recommend_page.dart';
 import 'package:flutter_palyer_demo/ui/home_page/home_tab_title.dart';
+import 'package:get/get.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -16,7 +18,6 @@ class _HomePageState extends State<HomePage>
   TabController? tabController;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     tabController = TabController(length: 1, vsync: this);
     WidgetsBinding.instance.addObserver(this);
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       backgroundColor: Colors.red,
       body: TabBarView(
-        children: const [RecommendPage()],
+        children: [ComplexPage()],
         controller: tabController,
       ),
       bottomNavigationBar: Container(
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage>
 
         child: TabBar(tabs: [
           TabTitleIcon(
-            title: StringStyles.recommend,
+            title: StringStyles.home.tr,
           )
         ],
         controller: tabController,),
