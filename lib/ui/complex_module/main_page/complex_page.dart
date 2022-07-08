@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_palyer_demo/res/colors.dart';
 import 'package:flutter_palyer_demo/res/res.dart';
 import 'package:flutter_palyer_demo/res/strings.dart';
+import 'package:flutter_palyer_demo/res/style.dart';
 import 'package:flutter_palyer_demo/routes/routes.dart';
 import 'package:flutter_palyer_demo/ui/complex_module/anime_page/anime_page.dart';
 import 'package:flutter_palyer_demo/ui/complex_module/movie_page/movie_page.dart';
@@ -22,10 +23,12 @@ class ComplexPage extends StatefulWidget {
 class _ComplexPageState extends State<ComplexPage>
     with SingleTickerProviderStateMixin {
   TabController? tabController;
+  //List<String> listPage = [StringStyles.recommend.tr,StringStyles.teleplay.tr,StringStyles.movie.tr,StringStyles.anime.tr,];
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: 5, vsync: this);
+    
   }
 
   @override
@@ -47,8 +50,11 @@ class _ComplexPageState extends State<ComplexPage>
                 alignment: Alignment.topLeft,
                 child: TabBar(
                     isScrollable: true,
+                    indicatorColor: ColorStyle.mainColor,
                     labelColor: ColorStyle.mainColor,
-                    unselectedLabelColor: ColorStyle.color_001642,
+                    labelStyle: Styles.style1A2F51_18,
+                    unselectedLabelStyle: Styles.style1A2F51_18,
+                    unselectedLabelColor: ColorStyle.color001642,
                     controller: tabController,
                     tabs: [
                       Tab(
@@ -68,21 +74,18 @@ class _ComplexPageState extends State<ComplexPage>
                       )
                     ]),
               ),
-              const Expanded(child: SizedBox()),
+              // const Expanded(child: SizedBox()),
               Ripple(
-                  circular: 20,
+                  circular: 10,
                   onTap: () => Get.toNamed(Routes.homePage),
-                  child: Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: SvgPicture.asset(
-                      Res.assetsImagesSearch,
-                      color: Colors.black87,
-                      width: 30,
-                    ),
+                  child: SvgPicture.asset(
+                    Res.assetsImagesSearch,
+                    color: Colors.black87,
+                    width: 30,
                   )),
-              const SizedBox(
-                width: 20,
-              ),
+              // const SizedBox(
+              //   width: 20,
+              // ),
             ],
           ),
           Expanded(
